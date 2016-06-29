@@ -4,6 +4,9 @@
 .LSOverride
 Icon
 
+# Sensitive config information
+*.cfg
+
 # Python
 *.py[cod]
 

@@ -1,33 +1,38 @@
 from __future__ import print_function, unicode_literals, division, absolute_import
-import os
+import os, sys
 
+from configparser import SafeConfigParser
 
-####################################################
-##  Edit this section with your account details.  ##
-####################################################
+cfg_file = SafeConfigParser()
+cfg_name = 'macguffin.cfg'
+path_to_cfg = os.path.abspath(os.path.dirname(sys.argv[0]))
+path_to_cfg = os.path.join(path_to_cfg, cfg_name)
+cfg_file.read(path_to_cfg)
 
-TC_USERNAME = ''
-TC_PASSWORD = ''
-TC_PASSKEY = ''
+# Accounts
+TC_USERNAME = cfg_file.get('tehconnection', 'username')
+TC_PASSWORD = cfg_file.get('tehconnection', 'password')
+TC_PASSKEY = cfg_file.get('tehconnection', 'passkey')
 
-TMDB_API_KEY = ''
+TL_USERNAME = cfg_file.get('torrentleech', 'username')
+TL_PASSWORD = cfg_file.get('torrentleech', 'password')
+TL_PASSKEY = cfg_file.get('torrentleech', 'passkey')
 
-IMGBAM_USERNAME = ''
-IMGBAM_PASSWORD = ''
+TMDB_API_KEY = cfg_file.get('utils', 'tmdb_api_key')
 
-####################################################
-##  Edit this section with your system details.   ##
-####################################################
+IMGBAM_USERNAME = cfg_file.get('utils', 'imgbam_username')
+IMGBAM_PASSWORD = cfg_file.get('utils', 'imgbam_password')
 
+# System
 # Set this to your rtorrent watch folder path to automatically seed new torrents
-WATCH_DIR = '~'
+WATCH_DIR = cfg_file.get('system', 'watch_dir')
 
 # Logs will be written to this directory, as {Release.Name}.log
 # NOTE: Existing logs will be overwritten.
-LOG_DIR = '~'
+LOG_DIR = cfg_file.get('system', 'log_dir')
 
 # All tracker cookies will be saved here
-COOKIE_DIR = '~'
+COOKIE_DIR = cfg_file.get('system', 'cookie_dir')
 
 # Paths to various binaries on your system (in case they are not on the system path)
 MEDIAINFO_PATH = 'mediainfo'

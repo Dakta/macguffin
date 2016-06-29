@@ -1,0 +1,31 @@
+# MacGuffin Configuration File
+# Warning: This file contains passwords. Be sure to take appropriate precautions
+#          (e.g. Add to .gitnignore and ensure only you have access)
+#
+# Copy this file to macguffin.cfg and supply your own information where needed
+
+####################################################
+##  Edit this section with your account details.  ##
+####################################################
+
+# Tracker Configuration
+[tehconnection]
+username =
+password =
+passkey = 
+
+# Utility services
+[utils]
+tmdb_api_key =
+imgbam_username =
+imgbam_password = 
+
+####################################################
+##  Edit this section with your system details.   ##
+####################################################
+
+[system]
+watch_dir=~
+log_dir=~
+cookie_dir=~
+
